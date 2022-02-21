@@ -1,0 +1,182 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "brazilsouth"
+        },
+        "networkInterfaceName1": {
+            "value": "bahamuth500_z1"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupName": {
+            "value": "bahamuth-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                },
+                {
+                    "name": "HTTPS",
+                    "properties": {
+                        "priority": 320,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "443"
+                    }
+                },
+                {
+                    "name": "HTTP",
+                    "properties": {
+                        "priority": 340,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "80"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkName": {
+            "value": "LabToStudy-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "default",
+                    "properties": {
+                        "addressPrefix": "10.0.0.0/24"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName1": {
+            "value": "bahamuth-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineName": {
+            "value": "bahamuth"
+        },
+        "virtualMachineName1": {
+            "value": "bahamuth"
+        },
+        "virtualMachineComputerName": {
+            "value": "bahamuth"
+        },
+        "virtualMachineRG": {
+            "value": "LabToStudy"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_F2s_v2"
+        },
+        "nicDeleteOption": {
+            "value": "Delete"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        },
+        "zone": {
+            "value": "1"
+        },
+        "backupVaultName": {
+            "value": "defaultVault638"
+        },
+        "backupFabricName": {
+            "value": "Azure"
+        },
+        "backupVaultRGName": {
+            "value": "LabToStudy"
+        },
+        "backupVaultRGIsNew": {
+            "value": false
+        },
+        "backupPolicyName": {
+            "value": "DailyPolicy-kzvworvy"
+        },
+        "backupPolicySchedule": {
+            "value": {
+                "schedulePolicyType": "SimpleSchedulePolicy",
+                "scheduleRunFrequency": "Daily",
+                "scheduleRunTimes": [
+                    "2022-02-20T11:00:00.000Z"
+                ],
+                "scheduleWeeklyFrequency": 0,
+                "scheduleRunDays": []
+            }
+        },
+        "backupPolicyRetention": {
+            "value": {
+                "retentionPolicyType": "LongTermRetentionPolicy",
+                "dailySchedule": {
+                    "retentionTimes": [
+                        "2022-02-20T11:00:00.000Z"
+                    ],
+                    "retentionDuration": {
+                        "count": 30,
+                        "durationType": "Days"
+                    }
+                },
+                "weeklySchedule": null,
+                "monthlySchedule": null,
+                "yearlySchedule": null
+            }
+        },
+        "backupPolicyTimeZone": {
+            "value": "UTC"
+        },
+        "backupInstantRpRetentionRangeInDays": {
+            "value": 2
+        },
+        "backupInstantRPDetails": {
+            "value": {
+                "azureBackupRGNamePrefix": "",
+                "azureBackupRGNameSuffix": ""
+            }
+        },
+        "backupItemName": {
+            "value": "vm;iaasvmcontainerv2;LabToStudy;bahamuth"
+        }
+    }
+}
